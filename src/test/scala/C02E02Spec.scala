@@ -1,6 +1,6 @@
 import org.scalatest._
 
-class C02E02Spec extends FunSpec with Matchers with BeforeAndAfter {
+class C02E02Spec extends FunSpec with Matchers {
   describe("isSorted") {
     describe("ordered = (a: Int, b: Int) => a <= b") {
       def intAsc(a: Int, b: Int): Boolean = a <= b
