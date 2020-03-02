@@ -7,10 +7,10 @@
 object C02E01 {
   def fib(n: Int): Int = {
     @annotation.tailrec
-    def recurse(n: Int, a: Int = 1, b: Int = 0): Int = {
+    def recurse(n: Int, a: Int = 0, b: Int = 1): Int = {
       n match {
-        case n if n <= 1 => b
-        case _           => recurse(n - 1, a + b, a)
+        case n if n <= 1 => a
+        case _           => recurse(n - 1, b, a + b)
       }
     }
 
