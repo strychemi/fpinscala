@@ -1,0 +1,17 @@
+# Created by https://www.gitignore.io/api/scala,metals
+# Edit at https://www.gitignore.io/?templates=scala,metals
+
+### Metals ###
+.metals/
+
+### Scala ###
+*.class
+*.log
+*.metals
+
+### Bloop ###
+.bloop/
+
+# End of https://www.gitignore.io/api/scala,metals
+
+target/
