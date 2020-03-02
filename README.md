@@ -13,4 +13,4 @@ For example `C02E01.scala` is the file for chapter 2 exercise 1.
 To run tests for exercises you want:
 
 - `sbt`
-- `testOnly C02E01`
+- `testOnly C02E01Spec`
