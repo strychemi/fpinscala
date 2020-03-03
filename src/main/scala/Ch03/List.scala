@@ -1,6 +1,6 @@
 package Ch03
 
-// code below is pasted from book to make above match expression run
+// code below is pasted from book for purposes of exercise
 sealed trait List[+A]
 case object Nil extends List[Nothing]
 case class Cons[+A](head: A, tail: List[A]) extends List[A]
