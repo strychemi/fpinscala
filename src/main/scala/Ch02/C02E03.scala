@@ -1,3 +1,5 @@
+package Ch02
+
 /**
   * Let’s look at another example, currying,
   * which converts a function f of two arguments into a function of one argument that partially applies f.

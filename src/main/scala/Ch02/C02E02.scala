@@ -1,3 +1,5 @@
+package Ch02
+
 /**
   * Implement isSorted, which checks whether an Array[A] is sorted according to a given comparison function:
   */

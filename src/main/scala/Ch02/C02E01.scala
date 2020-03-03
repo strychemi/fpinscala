@@ -1,3 +1,5 @@
+package Ch02
+
 /**
   * Write a recursive function to get the nth Fibonacci number.
   * The first two Fibonacci numbers are 0 and 1.

@@ -1,3 +1,5 @@
+package Ch02
+
 /**
   * Implement the higher-order function that composes two functions.
   */

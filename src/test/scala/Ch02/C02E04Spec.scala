@@ -1,3 +1,5 @@
+package Ch02
+
 import org.scalatest._
 
 class C02E04Spec extends FunSpec with Matchers {

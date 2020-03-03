@@ -1,3 +1,5 @@
+package Ch02
+
 /**
   * Implement uncurry, which reverses the transformation of curry.
   * Note that since => associates to the right,
