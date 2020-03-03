@@ -47,6 +47,7 @@ object List {
   }
 
   /**
+    * C03E04
     * Generalize tail to the function drop,
     * which removes the first n elements from a list.
     * Note that this function takes time proportional only to the number of elements being dropped—we don’t need to make a copy of the entire List.
