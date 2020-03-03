@@ -46,9 +46,24 @@ object List {
     case Cons(_, t) => Cons(h, t)
   }
 
-  // TODO: uncomment as needed for ch03 exercises
-  // def drop[A](l: List[A], n: Int): List[A] = ???
+  /**
+    * Generalize tail to the function drop,
+    * which removes the first n elements from a list.
+    * Note that this function takes time proportional only to the number of elements being dropped—we don’t need to make a copy of the entire List.
+    *
+    * @param l
+    * @param n
+    * @return
+    */
+  @annotation.tailrec
+  def drop[A](l: List[A], n: Int): List[A] = (l, n) match {
+    case (_, n) if n < 0 => l // case for when n is negative
+    case (Nil, _)        => Nil // n doesn't matter if list is already Nil
+    case (l, 0)          => l // base case
+    case _               => drop(tail(l), n - 1)
+  }
 
+  // TODO: uncomment as needed for ch03 exercises
   // def dropWhile[A](l: List[A], f: A => Boolean): List[A] = ???
 
   // def init[A](l: List[A]): List[A] = ???

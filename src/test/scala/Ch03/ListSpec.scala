@@ -23,5 +23,23 @@ class ListSpec extends FunSpec with Matchers {
         List.setHead(List(), 666) should be(List(666))
       }
     }
+
+    describe("C03E04 - drop") {
+      it("List(1, 2, 3), n = -1 should yield List(1, 2, 3)") {
+        List.drop(List(1, 2, 3), -1) should be(List(1, 2, 3))
+      }
+
+      it("List(1, 2, 3), n = 2 should yield List(3)") {
+        List.drop(List(1, 2, 3), 2) should be(List(3))
+      }
+
+      it("List(1, 2, 3), n = 99 should yield Nil") {
+        List.drop(List(1, 2, 3), 99) should be(Nil)
+      }
+
+      it("List(), n = 4 should yield List()") {
+        List.drop(List(), 4) should be(Nil)
+      }
+    }
   }
 }
