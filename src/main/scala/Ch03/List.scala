@@ -64,9 +64,21 @@ object List {
     case _               => drop(tail(l), n - 1)
   }
 
-  // TODO: uncomment as needed for ch03 exercises
-  // def dropWhile[A](l: List[A], f: A => Boolean): List[A] = ???
+  /**
+    * C03E05
+    * Implement dropWhile, which removes elements from the List prefix as long as they match a predicate.
+    *
+    * @param l
+    * @param f
+    * @return
+    */
+  def dropWhile[A](l: List[A], f: A => Boolean): List[A] = l match {
+    case Nil                => Nil
+    case Cons(h, t) if f(h) => dropWhile(t, f)
+    case Cons(h, t)         => Cons(h, dropWhile(t, f))
+  }
 
+  // TODO: uncomment as needed for ch03 exercises
   // def init[A](l: List[A]): List[A] = ???
 
   // def length[A](l: List[A]): Int = ???
