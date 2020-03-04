@@ -14,12 +14,12 @@ class C03E11Spec extends FunSpec with Matchers {
   }
 
   describe("product") {
-    it("List(1, 2, 3) should be 6") {
-      assert(C03E11.product(List(1, 2, 3)) === 6)
+    it("List(1, 2, 3) should be 6.0") {
+      assert(C03E11.product(List(1, 2, 3)) === 6.0)
     }
 
-    it("List() should be 1") {
-      assert(C03E11.product(List()) === 1)
+    it("List() should be 1.0") {
+      assert(C03E11.product(List()) === 1.0)
     }
   }
 
