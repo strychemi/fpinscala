@@ -43,9 +43,14 @@ class ListSpec extends FunSpec with Matchers {
     }
 
     describe("C0305 - dropWhile") {
-      it("List(1, 2, 3, 4, 5), f => isOdd should yield List(2, 4)") {
-        def isOdd(x: Int): Boolean = x % 2 == 1
-        List.dropWhile(List(1, 2, 3, 4, 5), isOdd) should be(List(2, 4))
+      def isOdd(x: Int): Boolean = x % 2 == 1
+
+      it("List(1, 3, 4), f => isOdd should yield List(4)") {
+        List.dropWhile(List(1, 3, 4), isOdd) should be(List(4))
+      }
+
+      it("List(), f => isOdd should yield List()") {
+        List.dropWhile(List(), isOdd) should be(List())
       }
     }
   }
