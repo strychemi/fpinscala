@@ -5,16 +5,6 @@ case object Nil extends List[Nothing]
 case class Cons[+A](head: A, tail: List[A]) extends List[A]
 
 object List {
-  def sum(ints: List[Int]): Int = ints match {
-    case Nil         => 0
-    case Cons(x, xs) => x + sum(xs)
-  }
-  def product(ds: List[Double]): Double = ds match {
-    case Nil          => 1.0
-    case Cons(0.0, _) => 0.0
-    case Cons(x, xs)  => x * product(xs)
-  }
-
   def apply[A](as: A*): List[A] =
     if (as.isEmpty) Nil
     else Cons(as.head, apply(as.tail: _*))
@@ -74,6 +64,7 @@ object List {
     * @param f
     * @return
     */
+  @annotation.tailrec
   def dropWhile[A](l: List[A], f: A => Boolean): List[A] = l match {
     case Cons(h, t) if f(h) => dropWhile(t, f)
     case _                  => l
@@ -104,6 +95,37 @@ object List {
     case Cons(h, t)   => Cons(h, init(t))
   }
 
+  def foldRight[A, B](as: List[A], z: B)(f: (A, B) => B): B = as match {
+    case Nil         => z
+    case Cons(x, xs) => f(x, foldRight(xs, z)(f))
+  }
+  // non-curried implementation
+  // def sum(ints: List[Int]): Int = ints match {
+  //   case Nil         => 0
+  //   case Cons(x, xs) => x + sum(xs)
+  // }
+  // def product(ds: List[Double]): Double = ds match {
+  //   case Nil          => 1.0
+  //   case Cons(0.0, _) => 0.0
+  //   case Cons(x, xs)  => x * product(xs)
+  // }
+
+  // Curried implementations
+  def sum(ns: List[Int]): Int = foldRight(ns, 0)(_ + _)
+
+  /**
+    * C03E07
+    * Can product, implemented using foldRight,
+    * immediately halt the recursion and return 0.0 if it encounters a 0.0?
+    * Why or why not? Consider how any short-circuiting might work if you call foldRight with a large list.
+    * This is a deeper question that we’ll return to in chapter 5.
+    *
+    * @param ns
+    * @return
+    */
+  // no, it won't short circuit because there's no check on the local values
+  // before the callback function f is called
+  def product(ns: List[Double]): Double = foldRight(ns, 1.0)(_ * _)
   // def length[A](l: List[A]): Int = ???
 
   // def foldLeft[A, B](l: List[A], z: B)(f: (B, A) => B): B = ???
