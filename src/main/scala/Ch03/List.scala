@@ -25,6 +25,7 @@ object List {
     * Note that the function takes constant time.
     * What are different choices you could make in your implementation if the List is Nil?
     * We’ll return to this question in the next chapter.
+    *
     * @param l
     * @return
     */
@@ -37,6 +38,7 @@ object List {
     * C03E03
     * Using the same idea,
     * implement the function setHead for replacing the first element of a List with a different value.
+    *
     * @param l
     * @param h
     * @return
@@ -77,8 +79,30 @@ object List {
     case _                  => l
   }
 
-  // TODO: uncomment as needed for ch03 exercises
-  // def init[A](l: List[A]): List[A] = ???
+  // for below exercise
+  def append[A](a1: List[A], a2: List[A]): List[A] =
+    a1 match {
+      case Nil        => a2
+      case Cons(h, t) => Cons(h, append(t, a2))
+    }
+
+  /**
+    * C03E06
+    * Not everything works out so nicely.
+    * Implement a function, init,
+    * that returns a List consisting of all but the last element of a List.
+    * So, given List(1,2,3,4),
+    * init will return List(1,2,3).
+    * Why can’t this function be implemented in constant time like tail?
+    *
+    * @param l
+    * @return
+    */
+  def init[A](l: List[A]): List[A] = l match {
+    case Nil                    => Nil
+    case Cons(h, t) if t == Nil => Nil
+    case Cons(h, t)             => Cons(h, init(t))
+  }
 
   // def length[A](l: List[A]): Int = ???
 

@@ -53,5 +53,15 @@ class ListSpec extends FunSpec with Matchers {
         List.dropWhile(List(), isOdd) should be(List())
       }
     }
+
+    describe("C03E06 - init") {
+      it("List(1, 2, 3, 4) should yield List(1, 2, 3)") {
+        List.init(List(1, 2, 3, 4)) should be(List(1, 2, 3))
+      }
+
+      it("List() should yield List()") {
+        List.init(List()) should be(List())
+      }
+    }
   }
 }
