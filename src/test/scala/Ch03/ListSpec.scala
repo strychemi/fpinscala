@@ -63,5 +63,14 @@ class ListSpec extends FunSpec with Matchers {
         List.init(List()) should be(List())
       }
     }
+
+    describe("C03E08") {
+      it("Nil and Cons directly to foldRight gets back the original list") {
+        List.foldRight(List(1, 2, 3), Nil: List[Int])(Cons(_, _)) should be(
+          List(1, 2, 3)
+        )
+        List(1, 2, 3) should be(Cons(1, Cons(2, Cons(3, Nil))))
+      }
+    }
   }
 }
