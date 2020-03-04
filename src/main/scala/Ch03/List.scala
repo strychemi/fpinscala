@@ -136,7 +136,24 @@ object List {
     */
   def length[A](as: List[A]): Int = foldRight(as, 0)((x, fn) => 1 + fn)
 
-  // def foldLeft[A, B](l: List[A], z: B)(f: (B, A) => B): B = ???
+  /**
+    * Our implementation of foldRight is not tail-recursive and
+    * will result in a StackOver- flowError for large lists
+    * (we say it’s not stack-safe). Convince yourself that this is the case,
+    * and then write another general list-recursion function, foldLeft,
+    * that is tail-recursive,
+    * using the techniques we discussed in the previous chapter.
+    *
+    * @param l
+    * @param z
+    * @param f
+    * @return
+    */
+  @annotation.tailrec
+  def foldLeft[A, B](l: List[A], z: B)(f: (B, A) => B): B = l match {
+    case Nil         => z
+    case Cons(x, xs) => foldLeft(xs, f(z, x))(f)
+  }
 
   // def map[A, B](l: List[A])(f: A => B): List[B] = ???
 }

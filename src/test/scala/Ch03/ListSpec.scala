@@ -73,13 +73,19 @@ class ListSpec extends FunSpec with Matchers {
       }
     }
 
-    describe("C03E09") {
+    describe("C03E09 - length") {
       it("should be 3 for List(1, 2, 3)") {
         assert(List.length(List(1, 2, 3)) === 3)
       }
 
       it("should be 0 for List()") {
         assert(List.length(List()) === 0)
+      }
+    }
+
+    describe("C03E10 - foldLeft") {
+      it("apply sum correctly") {
+        assert(List.foldLeft(List(1, 2, 3), 0)(_ + _) === 6)
       }
     }
   }
