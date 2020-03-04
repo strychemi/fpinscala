@@ -126,7 +126,15 @@ object List {
   // no, it won't short circuit because there's no check on the local values
   // before the callback function f is called
   def product(ns: List[Double]): Double = foldRight(ns, 1.0)(_ * _)
-  // def length[A](l: List[A]): Int = ???
+
+  /**
+    * C03E09
+    * Compute the length of a list using foldRight.
+    *
+    * @param l
+    * @return
+    */
+  def length[A](as: List[A]): Int = foldRight(as, 0)((x, fn) => 1 + fn)
 
   // def foldLeft[A, B](l: List[A], z: B)(f: (B, A) => B): B = ???
 
