@@ -96,5 +96,10 @@ object C03E13 {
     exp(z)
   }
 
-  // def foldRight[A, B](l: List[A], z: B)(f: (A, B) => B): B =
+  // same logic for above, just have to update g
+  def foldRight[A, B](l: List[A], z: B)(operation: (A, B) => B): B = {
+    def f0 = (b: B) => b
+    def g(fn: B => B, a: A): B => B = b => fn(operation(a, b))
+    C03E10.foldLeft(l, f0)(g)(z)
+  }
 }
