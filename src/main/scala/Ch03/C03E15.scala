@@ -14,7 +14,7 @@ object C03E15 {
     * @param l
     * @return
     */
-  def flatten[A](l: List[List[A]]): List[A] = {
+  def concat[A](l: List[List[A]]): List[A] = {
     foldLeft(l, Nil: List[A])((b, a) => append(b, a))
   }
 }
