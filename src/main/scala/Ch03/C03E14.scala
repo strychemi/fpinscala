@@ -1,6 +1,5 @@
 package Ch03
 
-// import C03E10.foldLeft
 import List.foldRight
 
 object C03E14 {
