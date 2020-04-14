@@ -17,5 +17,11 @@ object List {
   // Curried implementations
   def sum(ns: List[Int]): Int = foldRight(ns, 0)(_ + _)
 
-  // def map[A, B](l: List[A])(f: A => B): List[B] = ???
+  def map[A, B](as: List[A])(f: A => B): List[B] = {
+    foldRight(as, Nil: List[B])((a, b) => Cons(f(a), b))
+  }
+
+  def filter[A](as: List[A])(f: A => Boolean): List[A] = {
+    foldRight(as, Nil: List[A])((a, b) => if (f(a)) Cons(a, b) else b)
+  }
 }
