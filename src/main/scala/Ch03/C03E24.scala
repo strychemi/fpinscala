@@ -24,6 +24,7 @@ object C03E24 {
     * @param sub
     * @return
     */
+  @annotation.tailrec
   def hasSubsequence[A](sup: List[A], sub: List[A]): Boolean = {
     (sup, sub) match {
       case (_, Nil) => true
