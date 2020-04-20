@@ -3,7 +3,7 @@ package Ch03
 import org.scalatest._
 
 class C03E27Spec extends FunSpec with Matchers {
-  describe("maximum") {
+  describe("depth") {
     it("Leaf(7) should be 1") {
       C03E27.depth(Leaf(7)) should be(0)
     }
