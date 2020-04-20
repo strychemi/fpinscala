@@ -3,7 +3,7 @@ package Ch03
 import org.scalatest._
 
 class C03E28Spec extends FunSpec with Matchers {
-  describe("maximum") {
+  describe("map") {
     it("Leaf(7) times 2 should be Leaf(14)") {
       C03E28.map(Leaf(7))(_ * 2) should be(Leaf(14))
     }
